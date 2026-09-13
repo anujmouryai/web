@@ -1,0 +1,116 @@
+
+        /* 
+           Durga Jewellers: Advanced Luxury CSS Framework
+           Architecture: Modular, Responsive, and Performance-Optimized
+        */
+        :root {
+            --gold-primary: #D4AF37; 
+            --gold-secondary: #C5A028;
+            --gold-soft: #F9E29C;
+            --charcoal: #121212;
+            --off-white: #F8F8F8;
+            --ivory: #FFFDF5; 
+            --glass: rgba(255, 255, 255, 0.85);
+            --transition: all 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
+            --shadow: 0 10px 30px rgba(0,0,0,0.08);
+        }
+
+        /* Reset & Core Settings */
+        * { margin: 0; padding: 0; box-sizing: border-box; outline: none; }
+        html { scroll-behavior: smooth; font-size: 16px; -webkit-font-smoothing: antialiased; }
+        body { background-color: var(--off-white); color: var(--charcoal); font-family: 'Montserrat', sans-serif; line-height: 1.8; overflow-x: hidden; }
+        
+        /* Custom Cursor */
+        #custom-cursor {
+            width: 25px; height: 25px; border: 1px solid var(--gold-primary);
+            border-radius: 50%; position: fixed; pointer-events: none;
+            z-index: 9999; transition: transform 0.1s ease; transform: translate(-50%, -50%);
+        }
+
+        /* Global Typography */
+        h1, h2, h3,.brand-text { font-family: 'Cinzel', serif; letter-spacing: 3px; text-transform: uppercase; font-weight: 400; }
+        p { font-family: 'Montserrat', sans-serif; font-weight: 300; }
+      .italic-accent { font-family: 'Playfair Display', serif; font-style: italic; color: var(--gold-primary); text-transform: none; }
+
+        /* Luxury Animations */
+        @keyframes shine {
+            0% { transform: translateX(-150%) skewX(-25deg); }
+            100% { transform: translateX(150%) skewX(-25deg); }
+        }
+
+      .shimmer { position: relative; overflow: hidden; }
+      .shimmer::after {
+            content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+            background: linear-gradient(to right, transparent, rgba(255,255,255,0.4), transparent);
+            transform: translateX(-150%) skewX(-25deg);
+        }
+      .shimmer:hover::after { animation: shine 1s ease-in-out; }
+
+        @keyframes fadeInScale {
+            from { opacity: 0; transform: scale(0.95) translateY(20px); }
+            to { opacity: 1; transform: scale(1) translateY(0); }
+        }
+      .reveal { animation: fadeInScale 1s forwards; opacity: 0; }
+
+        /* Header & Navigation */
+      .header-main { background: var(--glass); backdrop-filter: blur(10px); position: sticky; top: 0; z-index: 1000; border-bottom: 1px solid rgba(212, 175, 55, 0.2); }
+      .top-nav { height: 90px; display: flex; justify-content: space-between; align-items: center; max-width: 1400px; margin: 0 auto; padding: 0 40px; }
+      .logo img { height: 55px; transition: var(--transition); }
+      .nav-links { list-style: none; display: flex; gap: 30px; }
+      .nav-links a { text-decoration: none; color: var(--charcoal); font-weight: 600; font-size: 0.8rem; transition: var(--transition); position: relative; }
+      .nav-links a:hover { color: var(--gold-primary); }
+
+        /* Hero Section */
+      .hero { height: 90vh; background: var(--ivory); display: flex; align-items: center; position: relative; overflow: hidden; }
+      .hero-bg { position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0.8; z-index: 1; }
+      .hero-content { position: relative; z-index: 2; max-width: 800px; margin-left: 10%; color: #fff; text-shadow: 2px 2px 4px rgba(0,0,0,0.5); }
+      .hero h1 { font-size: 4rem; margin-bottom: 25px; line-height: 1.1; }
+      .btn-premium { padding: 18px 45px; background: var(--gold-primary); color: #fff; text-decoration: none; border-radius: 0; transition: var(--transition); display: inline-block; box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3); border: none; cursor: pointer; }
+      .btn-premium:hover { background: var(--charcoal); transform: translateY(-3px); }
+
+        /* Category Grids */
+      .section-padding { padding: 100px 0; }
+      .section-header { text-align: center; margin-bottom: 60px; }
+      .grid-container { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 40px; max-width: 1400px; margin: 0 auto; padding: 0 40px; }
+      .category-card { text-align: center; cursor: pointer; text-decoration: none; color: inherit; }
+      .card-img-circle { width: 180px; height: 180px; border-radius: 50%; border: 2px solid var(--gold-soft); margin: 0 auto 20px; overflow: hidden; transition: var(--transition); padding: 5px; }
+      .card-img-circle img { width: 100%; height: 100%; object-fit: cover; border-radius: 50%; transition: 1s; }
+      .category-card:hover.card-img-circle { border-color: var(--gold-primary); transform: scale(1.05); }
+
+        /* Trust Section */
+      .trust-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; background: #fff; padding: 60px 40px; border-radius: 5px; box-shadow: var(--shadow); }
+      .trust-item { padding: 30px; border: 1px solid #f1f1f1; text-align: center; transition: var(--transition); }
+      .trust-item:hover { border-color: var(--gold-primary); background: var(--ivory); }
+
+        /* Diamond Education */
+      .edu-section { background: var(--charcoal); color: #fff; padding: 100px 40px; }
+      .edu-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; max-width: 1200px; margin: 0 auto; align-items: center; }
+      .edu-list { list-style: none; }
+      .edu-list li { margin-bottom: 30px; padding-left: 20px; border-left: 2px solid var(--gold-primary); }
+
+        /* Scheme Banner */
+      .scheme-banner { background: linear-gradient(135deg, #1a1a1a, #333); color: #fff; display: flex; align-items: center; padding: 80px; margin-top: 100px; }
+      .scheme-content { flex: 1; padding-right: 50px; }
+      .scheme-img { flex: 1; border: 5px solid var(--gold-primary); }
+      .scheme-img img { width: 100%; height: auto; display: block; }
+
+        /* Footer */
+      .footer-main { background: #000; color: #aaa; padding: 80px 40px 40px; }
+      .footer-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 40px; max-width: 1400px; margin: 0 auto; }
+      .footer-col h3 { color: #fff; margin-bottom: 25px; }
+      .footer-links { list-style: none; }
+      .footer-links li { margin-bottom: 12px; }
+      .footer-links a { color: #888; text-decoration: none; font-size: 0.85rem; transition: var(--transition); }
+      .footer-links a:hover { color: var(--gold-primary); }
+
+        /* WhatsApp */
+      .wa-sticky { position: fixed; bottom: 30px; right: 30px; background: #25d366; color: #fff; width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; text-decoration: none; font-size: 1.8rem; z-index: 1000; box-shadow: 0 5px 20px rgba(0,0,0,0.2); }
+
+        @media (max-width: 768px) {
+          .hero h1 { font-size: 2.5rem; }
+          .nav-links { display: none; }
+          .edu-grid,.scheme-banner { flex-direction: column; text-align: center; padding: 40px 20px; }
+          .scheme-content { padding-right: 0; margin-bottom: 40px; }
+          .footer-grid { grid-template-columns: 1fr 1fr; }
+        }
+  

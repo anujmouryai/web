@@ -1,0 +1,312 @@
+/* =======================================================
+   1. BASE / RESET
+======================================================= */
+
+html {
+  scroll-behavior: smooth;
+  scroll-snap-type: y mandatory;
+} 
+
+/* =======================================================
+   2. GLOBAL SECTIONS
+======================================================= */
+
+section {
+  min-height: 100vh; /* impirtant for scroll snapping */
+  padding: 80px 40px;
+  box-sizing: border-box;
+  scroll-snap-align: start;
+  scroll-snap-stop: always;
+}
+
+.divider {
+  height: 14px;
+  background: black;
+  width: 100%;
+  scroll-snap-align: none;
+}
+
+/* =======================================================
+   3. NAVBAR
+======================================================= */
+
+nav {
+  position: fixed;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+
+  display: flex;
+  align-items: center;
+  gap: 30px;
+
+  padding: 14px 28px;
+  border-radius: 50px;
+
+  background: rgba(20, 20, 30, 0.6);
+  backdrop-filter: blur(15px);
+  border: 2px solid rgba(255, 255, 255, 0.3);
+
+  z-index: 1000;
+}
+
+.logo {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #f46601, #45a9ac);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-weight: bold;
+  color: #020617;
+}
+
+nav a {
+  color: #12a5d6;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 20px;
+  margin: 0 15px;
+  transition: 0.3s;
+}
+
+nav a:hover {
+  color: #00ffff;
+  text-shadow: 0 0 10px #00ffff;
+}
+
+/* Resume Button */
+.resume-btn {
+  padding: 10px 22px;
+  border-radius: 25px;
+  background: linear-gradient(90deg, #00f5ff, #ff7a18);
+  color: #020617;
+  font-weight: bold;
+  border: none;
+  cursor: pointer;
+}
+
+/* =======================================================
+   4. HOME BACKGROUND
+======================================================= */
+
+#Home {
+  color: white;
+  position: relative;
+  overflow: hidden;
+  background: #020617;
+}
+
+#Home::before {
+  content: "";
+  position: absolute;
+  inset: -30%;
+  z-index: 0;
+
+  background: conic-gradient(
+    #ff0080,
+    #7928ca,
+    #2afadf,
+    #ff8a00,
+    #ff0080
+  );
+
+  filter: blur(140px);
+  opacity: 0.7;
+  animation: rotateMesh 25s linear infinite;
+}
+
+#Home::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+
+  background:
+    radial-gradient(circle at 70% 30%, rgba(0,255,255,0.35), transparent 40%),
+    radial-gradient(circle at 30% 70%, rgba(255,0,150,0.35), transparent 40%);
+
+  filter: blur(80px);
+}
+
+@keyframes rotateMesh {
+  to { transform: rotate(360deg); }
+}
+
+#Home > * {
+  position: relative;
+  z-index: 1;
+}
+
+/* =======================================================
+   5. HERO LAYOUT
+======================================================= */
+
+.hero-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  max-width: 1200px;
+  margin: 0 auto;
+  padding-top: 120px;
+
+  gap: 90px;
+}
+
+.hero-left { text-align: center; flex: 1; }
+.hero-right { flex: 1; }
+
+/* =======================================================
+   6. HERO CONTENT
+======================================================= */
+
+.hero-img {
+  width: 260px;
+  height: 260px;
+  border-radius: 50%;
+  object-fit: cover;
+
+  border: 5px solid rgba(255,255,255,0.25);
+  box-shadow: 0 0 40px rgba(0,255,255,0.5);
+}
+
+.hero-name {
+  margin-top: 25px;
+  font-size: 40px;
+  font-weight: 800;
+  color: #b7ff00;
+  letter-spacing: 2.5px;
+}
+
+.hero-right h1 {
+  font-size: 55px;
+  line-height: 1.15;
+  margin: 0;
+  font-weight: 700;
+
+  background: linear-gradient(
+    270deg,
+    #010814,
+    #120220,
+    #402511,
+    #340d2c,
+    #0a4143
+  );
+
+  background-size: 400% 400%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+
+  animation: gradientMove 10s ease infinite;
+}
+
+@keyframes gradientMove {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.hero-sub {
+  font-size: 34px;
+  margin: 30px 0;
+
+  background: linear-gradient(90deg,#ff00cc,#00ffff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+
+  font-weight: 500;
+}
+
+/* =======================================================
+   7. BUTTON
+======================================================= */
+
+.hero-btn {
+  padding: 12px 26px;
+  border-radius: 30px;
+
+  background: linear-gradient(90deg,#00f5ff,#ff7a18);
+  color: #020617;
+
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.hero-btn:hover {
+  transform: scale(1.08);
+  box-shadow: 0 0 20px rgba(0,255,255,0.8);
+}
+
+/* =======================================================
+   8. BOTTOM TEXT
+======================================================= */
+/* 
+.hero-bottom {
+  text-align: center;
+  margin-top: 40px;
+} */
+
+.hero-bottom .hero-sub {
+  font-size: 42px;
+  font-weight: 700;
+  margin-bottom: 20px;
+  color: #000;
+  background: none;
+  -webkit-text-fill-color: initial;
+    text-align: center;
+  margin-top: 40px;
+}
+
+
+/* =======================================================
+   9. RESUME POPUP
+======================================================= */
+
+.resume-modal {
+  display: none;
+  position: fixed;
+  inset: 0;
+
+  background: rgba(0,0,0,0.75);
+  backdrop-filter: blur(10px);
+
+  z-index: 9999;
+  align-items: center;
+  justify-content: center;
+}
+
+.resume-box {
+  width: 85%;
+  max-width: 900px;
+  height: 85%;
+
+  background: rgba(30,30,40,0.9);
+  border-radius: 20px;
+  padding: 20px;
+
+  display: flex;
+  flex-direction: column;
+}
+
+.resume-box h2 {
+  color: white;
+  margin: 0 0 10px;
+}
+
+.resume-frame {
+  flex: 1;
+  border: none;
+  border-radius: 10px;
+}
+
+.resume-actions {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 15px;
+}
